@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Mi San Valentín?</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- Fondo animado -->
+  <div class="hearts-background"></div>
+
+  <!-- Contenedor principal -->
+  <main class="container center">
+    <h1 class="fade-in">¿Feliz de que tú seas<br><span>mi San Valentín?</span> 💖</h1>
+
+    <button class="btn-primary pulse" onclick="goToLogin()">
+      Sí, quiero ver 💕
+    </button>
+  </main>
+
+  <!-- JS -->
+  <script>
+    function goToLogin() {
+      window.location.href = 'login.html';
+    }
+  </script>
+
+</body>
+</html>

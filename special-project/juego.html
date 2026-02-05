@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego del Amor 💖</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(to bottom, #ffe6f0, #fff);
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            color: #d63384;
+            margin-bottom: 10px;
+        }
+
+        #score {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 2rem;
+            cursor: pointer;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            from {
+                top: -50px;
+                opacity: 1;
+            }
+            to {
+                top: 100vh;
+                opacity: 0.8;
+            }
+        }
+
+        #finalMessage {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 300px;
+        }
+
+        #finalMessage h2 {
+            color: #d63384;
+        }
+
+        #finalMessage button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background: #ff69b4;
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        #finalMessage button:hover {
+            background: #ff85c1;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Atrapa los corazones 💕</h1>
+<div id="score">Puntos: 0</div>
+
+<div id="finalMessage">
+    <h2>💖 ¡Ganaste! 💖</h2>
+    <p>
+        No importa cuántos corazones atrapes aquí,<br>
+        porque tú ya atrapaste el mío desde el<br>
+        <strong>26 de julio</strong>.
+    </p>
+    <button onclick="location.href='home.html'">Volver</button>
+</div>
+
+<script>
+    let score = 0;
+    const scoreDisplay = document.getElementById("score");
+    const finalMessage = document.getElementById("finalMessage");
+    const maxScore = 10;
+
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerText = "💖";
+
+        heart.style.left = Math.random() * 90 + "vw";
+        heart.style.animationDuration = (3 + Math.random() * 2) + "s";
+
+        heart.addEventListener("click", () => {
+            score++;
+            scoreDisplay.innerText = "Puntos: " + score;
+            heart.remove();
+
+            if (score >= maxScore) {
+                endGame();
+            }
+        });
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+
+    function endGame() {
+        document.querySelectorAll(".heart").forEach(h => h.remove());
+        finalMessage.style.display = "block";
+        clearInterval(gameInterval);
+    }
+
+    const gameInterval = setInterval(createHeart, 800);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nuestra historia 💌</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <style>
+    .story-container {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .story-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--rosa-principal);
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(var(--rosa-principal), var(--dorado));
+      border-radius: 2px;
+    }
+
+    .event {
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .event.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .event h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--rosa-principal);
+      margin-bottom: 0.4rem;
+    }
+
+    .event p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .dot {
+      position: absolute;
+      left: 1px;
+      width: 20px;
+      height: 20px;
+      background: var(--rosa-principal);
+      border-radius: 50%;
+      transform: translateY(4px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hearts-background"></div>
+
+  <main class="container">
+    <section class="story-container">
+      <h1 class="story-title fade-in">Nuestra historia 💕</h1>
+
+      <div class="timeline">
+
+        <div class="event">
+          <div class="dot"></div>
+          <h3>26 de julio</h3>
+          <p>El día en que todo comenzó y sin saberlo cambió nuestras vidas para siempre.</p>
+        </div>
+
+        <div class="event">
+          <div class="dot"></div>
+          <h3>Primeras risas</h3>
+          <p>Momentos simples que se volvieron especiales solo por estar juntos.</p>
+        </div>
+
+        <div class="event">
+          <div class="dot"></div>
+          <h3>Más que un recuerdo</h3>
+          <p>Con el tiempo entendí que no era solo un momento, era una historia que quería seguir escribiendo contigo.</p>
+        </div>
+
+        <div class="event">
+          <div class="dot"></div>
+          <h3>Hoy</h3>
+          <p>Seguimos creciendo, aprendiendo y eligiéndonos cada día.</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const events = document.querySelectorAll('.event');
+
+    function revealOnScroll() {
+      const trigger = window.innerHeight * 0.85;
+
+      events.forEach(event => {
+        const top = event.getBoundingClientRect().top;
+        if (top < trigger) {
+          event.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acceso especial 💖</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <style>
+    .login-box {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      max-width: 380px;
+      width: 100%;
+    }
+
+    .login-box h2 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 1.5rem;
+      color: var(--rosa-principal);
+    }
+
+    .login-box p {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1rem;
+      border-radius: 12px;
+      border: 2px solid var(--rosa-principal);
+      font-size: 1rem;
+      text-align: center;
+      outline: none;
+    }
+
+    .login-box input:focus {
+      border-color: var(--dorado);
+    }
+
+    .error {
+      color: #c0392b;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .shake {
+      animation: shake 0.4s;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hearts-background"></div>
+
+  <main class="container center">
+    <div class="login-box fade-in">
+      <h2>Acceso especial 💕</h2>
+      <p>Solo quien conoce nuestra historia puede entrar</p>
+
+      <input type="number" id="day" placeholder="Día" min="1" max="31" />
+      <input type="number" id="month" placeholder="Mes" min="1" max="12" />
+
+      <button class="btn-primary" onclick="checkDate()">Entrar 💖</button>
+
+      <div class="error" id="errorMsg">Ups… intenta recordar ese día tan especial 💭</div>
+    </div>
+  </main>
+
+  <script>
+    // CAMBIA ESTA FECHA POR LA DE USTEDES
+    const correctDay = 26;
+    const correctMonth = 7;
+
+    function checkDate() {
+      const day = document.getElementById('day').value;
+      const month = document.getElementById('month').value;
+      const errorMsg = document.getElementById('errorMsg');
+      const box = document.querySelector('.login-box');
+
+      if (parseInt(day) === correctDay && parseInt(month) === correctMonth) {
+        window.location.href = 'home.html';
+      } else {
+        errorMsg.style.display = 'block';
+        box.classList.add('shake');
+        setTimeout(() => box.classList.remove('shake'), 400);
+      }
+    }
+  </script>
+
+</body>
+</html>

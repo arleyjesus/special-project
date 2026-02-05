@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para ti 💖</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <style>
+    .menu-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin-bottom: 2.5rem;
+      color: var(--rosa-principal);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.8rem;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 22px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+    }
+
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 0.8rem;
+      color: var(--rosa-principal);
+    }
+
+    .card p {
+      font-size: 0.95rem;
+    }
+
+    .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hearts-background"></div>
+
+  <main class="container center">
+    <h1 class="menu-title fade-in">Un pequeño regalo para ti 💕</h1>
+
+    <section class="cards fade-in">
+
+      <div class="card" onclick="openStory()">
+        <div class="icon">💌</div>
+        <h3>Nuestra historia</h3>
+        <p>Cómo comenzó todo y por qué eres tan especial para mí.</p>
+      </div>
+
+      <div class="card" onclick="openLove()">
+        <div class="icon">💗</div>
+        <h3>Te quiero mucho</h3>
+        <p>Algunas palabras que nacen directamente del corazón.</p>
+      </div>
+
+      <div class="card" onclick="openGame()">
+        <div class="icon">🎮</div>
+        <h3>Un pequeño juego</h3>
+        <p>Porque el amor también se disfruta jugando.</p>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    function openStory() {
+      window.open('historia.html', '_blank');
+    }
+
+    function openLove() {
+      window.location.href = 'amor.html';
+    }
+
+    function openGame() {
+      window.location.href = 'juego.html';
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Te quiero mucho 💖</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <style>
+    .love-box {
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 3rem 2.5rem;
+      border-radius: 25px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .love-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--rosa-principal);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .love-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      text-align: center;
+      min-height: 140px;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.2em;
+      background: var(--rosa-principal);
+      margin-left: 3px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    .love-btn {
+      margin-top: 2.5rem;
+      display: none;
+      text-align: center;
+    }
+
+    .final-message {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      text-align: center;
+      display: none;
+      color: var(--rosa-principal);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hearts-background"></div>
+
+  <main class="container center">
+    <div class="love-box fade-in">
+      <h1 class="love-title">Para ti 💕</h1>
+
+      <div class="love-text" id="loveText"></div><span class="cursor"></span>
+
+      <div class="love-btn" id="loveBtn">
+        <button class="btn-primary" onclick="showFinalMessage()">Yo también 💖</button>
+      </div>
+
+      <div class="final-message" id="finalMessage">
+        Gracias por existir y hacer mi vida más bonita ✨
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const message = `Te quiero mucho.
+
+No solo por lo que eres,
+sino por todo lo que compartimos,
+por cada risa, cada momento
+y cada recuerdo que seguimos creando.
+
+Estar contigo hace que todo tenga más sentido.`;
+
+    const textElement = document.getElementById('loveText');
+    const button = document.getElementById('loveBtn');
+    let index = 0;
+
+    function typeText() {
+      if (index < message.length) {
+        textElement.innerHTML += message.charAt(index);
+        index++;
+        setTimeout(typeText, 45);
+      } else {
+        button.style.display = 'block';
+      }
+    }
+
+    function showFinalMessage() {
+      document.getElementById('finalMessage').style.display = 'block';
+    }
+
+    typeText();
+  </script>
+
+</body>
+</html>

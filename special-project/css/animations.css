@@ -1,0 +1,87 @@
+/* =========================
+   ANIMACIONES GENERALES
+========================= */
+
+.fade-in {
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   BOTÓN PULSANTE
+========================= */
+.pulse {
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   CORAZONES FLOTANTES
+========================= */
+.hearts-background::before,
+.hearts-background::after {
+  content: '❤';
+  position: absolute;
+  font-size: 2rem;
+  color: rgba(247, 178, 204, 0.5);
+  animation: floatHearts 12s linear infinite;
+}
+
+.hearts-background::before {
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.hearts-background::after {
+  left: 70%;
+  animation-delay: 6s;
+}
+
+@keyframes floatHearts {
+  0% {
+    bottom: -10%;
+    opacity: 0;
+    transform: translateX(0) scale(1);
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(30px) scale(1.2);
+  }
+  100% {
+    bottom: 110%;
+    opacity: 0;
+    transform: translateX(-30px) scale(0.9);
+  }
+}
+
+/* =========================
+   TRANSICIONES SUAVES
+========================= */
+* {
+  transition: background-color 0.3s ease,
+              color 0.3s ease,
+              transform 0.3s ease;
+}
